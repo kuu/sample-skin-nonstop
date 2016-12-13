@@ -294,7 +294,7 @@ var ControlBar = React.createClass({
 
       "live": <a className={liveClass}
         ref="LiveButton"
-        onClick={liveClick} key="live">
+        key="live">
         <div className="oo-live-circle"></div>
         <span className="oo-live-text">{liveText}</span>
       </a>,
@@ -475,7 +475,6 @@ var ControlBar = React.createClass({
 
     return (
       <div className={controlBarClass} style={controlBarStyle} onMouseUp={this.handleControlBarMouseUp} onTouchEnd={this.handleControlBarMouseUp}>
-        <ScrubberBar {...this.props} />
 
         <div className="oo-control-bar-items-wrapper">
           {controlBarItems}

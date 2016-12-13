@@ -88,10 +88,10 @@ function buildJS(file, hash, watch, ugly, sourcemap, debug, externalReact) {
 }
 
 // Build All
-gulp.task('build', ['browserify', 'browserify:min', 'sass', 'sass:min', 'assets', 'html', 'pages']);
+gulp.task('build', ['browserify', 'browserify:min', 'sass', 'sass:min', 'assets', 'html', 'extra', 'pages']);
 
 // Build Watch
-gulp.task('build:watch', ['watchify', 'watchify:min', 'sass', 'sass:min', 'assets', 'html', 'pages']);
+gulp.task('build:watch', ['watchify', 'watchify:min', 'sass', 'sass:min', 'assets', 'html', 'extra', 'pages']);
 
 // Browserify JS
 gulp.task('browserify', function() {
@@ -188,6 +188,12 @@ gulp.task('pages', function () {
 gulp.task('html', function () {
   gulp.src('sample.html')
     .pipe(rename('index.html'))
+    .pipe(gulp.dest('./build'));
+});
+
+// Extra files
+gulp.task('extra', function () {
+  gulp.src(['config/skin.json'])
     .pipe(gulp.dest('./build'));
 });
 
